@@ -1,12 +1,268 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="refresh" content="0; url=ai_studio_code.html">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Logiciel — redirection</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossier de Présentation iQranee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=Baskervville&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-deep: #2C3A1C;
+            --green-mid: #4C634F;
+            --sage: #A5AF97;
+            --sand: #F5ECDD;
+            --ink: #2A2E28;
+            --muted: #6E7368;
+            --paper: #FCFBF7;
+            --line: #E4E1D6;
+        }
+
+        body {
+            background-color: #ddd;
+            font-family: 'Inter', sans-serif;
+            color: var(--ink);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Configuration pour l'export PDF */
+        @media print {
+            body { background-color: white; }
+            .no-print { display: none; }
+            .page { 
+                box-shadow: none !important; 
+                margin: 0 !important; 
+                border: none !important;
+                width: 100% !important;
+            }
+            .page-break { page-break-before: always; }
+        }
+
+        .page {
+            background: var(--paper);
+            width: 210mm;
+            min-height: 297mm;
+            padding: 25mm;
+            margin: 20px auto;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border: 1px solid var(--line);
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        header {
+            border-bottom: 3px solid var(--green-deep);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28pt;
+            color: var(--green-deep);
+            margin: 0;
+        }
+
+        .doc-meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 10pt;
+            color: var(--muted);
+            text-align: right;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20pt;
+            color: var(--green-deep);
+            border-left: 5px solid var(--sage);
+            padding-left: 15px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 14pt;
+            color: var(--green-mid);
+            margin-top: 20px;
+        }
+
+        p {
+            font-family: 'Baskervville', serif;
+            font-size: 12pt;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            background-color: var(--sand);
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .info-box {
+            background-color: #fdfdfd;
+            border: 1px solid var(--line);
+            border-left: 5px solid var(--green-mid);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-family: 'Baskervville', serif;
+        }
+
+        ul {
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-family: 'Baskervville', serif;
+            font-size: 12pt;
+        }
+
+        .role-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .role-card {
+            border: 1px solid var(--line);
+            padding: 15px;
+            border-radius: 10px;
+            background: white;
+        }
+
+        .role-card b {
+            color: var(--green-deep);
+            display: block;
+            margin-bottom: 5px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20mm;
+            left: 25mm;
+            right: 25mm;
+            font-size: 9pt;
+            color: var(--muted);
+            text-align: center;
+            border-top: 1px solid var(--line);
+            padding-top: 10px;
+        }
+
+        .btn-print {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background: var(--green-deep);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+    </style>
 </head>
 <body>
-  <p>Redirection vers <a href="ai_studio_code.html">ai_studio_code.html</a>. Si la redirection ne fonctionne pas, cliquez sur le lien.</p>
-</body>
-</html>
+
+    <button class="btn-print no-print" onclick="window.print()">⬇️ Télécharger en PDF</button>
+
+    <!-- PAGE 1 : COUVERTURE -->
+    <div class="page">
+        <div style="margin-top: 100px; text-align: center;">
+            <div style="font-family: 'Inter', sans-serif; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 20px;">Rapport de Conception</div>
+            <h1 style="font-size: 42pt; margin-bottom: 30px;">Projet iQranee</h1>
+            <div style="width: 60px; height: 4px; background: var(--green-deep); margin: 0 auto 30px;"></div>
+            <p style="font-size: 18pt; text-align: center; font-style: italic;">De la Vision à la Réalisation Numérique</p>
+            <div style="margin-top: 150px; text-align: left; font-family: 'Inter', sans-serif; font-size: 12pt;">
+                <p><b>Destinataire :</b> Direction de l'Institut iQranee</p>
+                <p><b>Objet :</b> Architecture, diagnostic et déploiement du système de gestion interne</p>
+                <p><b>Date :</b> Juillet 2026</p>
+            </div>
+        </div>
+        <div class="footer">iQranee &copy; 2026 - Document Confidentiel</div>
+    </div>
+
+    <!-- PAGE 2 : INTRODUCTION & NATURE -->
+    <div class="page page-break">
+        <header>
+            <h1>iQranee</h1>
+            <div class="doc-meta">Page 2 / 6</div>
+        </header>
+
+        <h2>1. Introduction : origine et vision</h2>
+        <p>La création de l'outil <b>iQranee</b> ne naît pas d'une simple envie de criar un site internet, mais d'un constat de terrain au sein de notre institut.</p>
+        <p>L'institut fonctionnait avec des méthodes fragmentées. L'information était éparpillée, les processus étaient manuels et la vision globale de l'activité était difficile à obten[...]
+        <p>L'idée a muté vers la création d'un véritable <span class="highlight">outil métier</span> (un logiciel conçu sur mesure pour répondre à la complexité de notre organisation). N[...]
+
+        <h2>2. Nature du projet</h2>
+        <p>Il est essentiel de définir précisément ce qu'est iQranee pour éviter toute confusion :</p>
+        <ul>
+            <li><b>Une application web :</b> Un logiciel complet accessible via un navigateur. Elle permet de réaliser des actions complexes : enregistrer, modifier, supprimer et calculer des do[...]
+            <li><b>Un logiciel métier :</b> Un outil conçu spécifiquement pour intégrer les règles de notre institut (cycles de cours, niveaux d'arabe, communication familles).</li>
+        </ul>
+        <div class="info-box">
+            <b>Hiérarchie de complexité :</b><br>
+            Site vitrine (lecture seule) &rarr; Page HTML (affiche une info) &rarr; <b>Application iQranee (système dynamique qui traite et mémorise l'information).</b>
+        </div>
+    </div>
+
+    <!-- PAGE 3 : IA vs LOGICIEL -->
+    <div class="page page-break">
+        <header>
+            <h1>iQranee</h1>
+            <div class="doc-meta">Page 3 / 6</div>
+        </header>
+
+        <h2>3. IA vs Véritable Logiciel</h2>
+        <p>Une Intelligence Artificielle (IA) peut générer en quelques secondes une interface visuelle. Cependant, il existe un fossé technologique entre une "coquille vide" et un logiciel pro[...]
+        
+        <div class="info-box" style="background-color: var(--sand);">
+            <b>La métaphore de la construction :</b><br>
+            L'IA construit la <b>façade</b> d'une maison (couleurs, fenêtres). C'est esthétique, mais la maison est vide. Le développement logiciel consiste à construire les <b>fondations</b[...]
+        </div>
+
+        <p>Un vrai logiciel nécessite quatre piliers que l'IA seule ne peut pas gérer :</p>
+        <ul>
+            <li><b>L'Architecture :</b> Le plan structurel du système.</li>
+            <li><b>La Base de données :</b> La mémoire permanente et organisée.</li>
+            <li><b>La Logique métier :</b> Les règles de calcul et de validation.</li>
+            <li><b>La Sécurité :</b> La protection et le contrôle des accès.</li>
+        </ul>
+    </div>
+
+    <!-- PAGE 4 : AUDITS -->
+    <div class="page page-break">
+        <header>
+            <h1>iQranee</h1>
+            <div class="doc-meta">Page 4 / 6</div>
+        </header>
+
+        <h2>4. Le Diagnostic : La phase d'Audit</h2>
+        <p>L'audit est l'étape de l'ingénieur qui permet de passer du "ressenti" à la "donnée réelle". J'ai appliqué une méthode de <b>"Teardown"</b> (déconstruction systématique) sur l[...]
+
+        <h3>A. L'Audit UX (Expérience Utilisateur)</h3>
+        <p>Analyse de la <b>Charge Cognitive</b> (effort mental requis pour utiliser l'outil). Le constat a montré une surcharge d'onglets et de menus, créant une fatigue visuelle. La solution [...]
+
+        <h3>B. L'Audit d'Architecture de l'Information</h3>
+        <p>Analyse de la logique de regroupement. L'audit a révélé une navigation "plate" et confuse. La solution a été la création de <b>Domaines Métiers</b> (Pédagogie, Assiduité, Comm[...]
+
+        <h3>C. L'Audit Technique et de Scalabilité</h3>
+        <p>Analyse de la robustesse. J'ai préparé le passage au mode <b>Multi-tenant</b> (capacité du logiciel à gérer plusieurs entités isolées) et implémenté la <b>Sécurité RLS</b> ([...]
+    </div>
+
+    <!-- PAGE 5 : ARCHITECTURE & TECH -->
+    <div,"message":"Update index.html to full document and fix redirection","owner":"iQranee","path":"index.html","repo":"Logiciel","sha":"079cfca399206812fa72eccb7c2ddff60d681c7a"}]}]

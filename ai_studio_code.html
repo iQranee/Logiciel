@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossier de Présentation iQranee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=Baskervville&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-deep: #2C3A1C;
+            --green-mid: #4C634F;
+            --sage: #A5AF97;
+            --sand: #F5ECDD;
+            --ink: #2A2E28;
+            --muted: #6E7368;
+            --paper: #FCFBF7;
+            --line: #E4E1D6;
+        }
+
+        body {
+            background-color: #ddd;
+            font-family: 'Inter', sans-serif;
+            color: var(--ink);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Configuration pour l'export PDF */
+        @media print {
+            body { background-color: white; }
+            .no-print { display: none; }
+            .page { 
+                box-shadow: none !important; 
+                margin: 0 !important; 
+                border: none !important;
+                width: 100% !important;
+            }
+            .page-break { page-break-before: always; }
+        }
+
+        .page {
+            background: var(--paper);
+            width: 210mm;
+            min-height: 297mm;
+            padding: 25mm;
+            margin: 20px auto;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border: 1px solid var(--line);
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        header {
+            border-bottom: 3px solid var(--green-deep);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28pt;
+            color: var(--green-deep);
+            margin: 0;
+        }
+
+        .doc-meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 10pt;
+            color: var(--muted);
+            text-align: right;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20pt;
+            color: var(--green-deep);
+            border-left: 5px solid var(--sage);
+            padding-left: 15px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 14pt;
+            color: var(--green-mid);
+            margin-top: 20px;
+        }
+
+        p {
+            font-family: 'Baskervville', serif;
+            font-size: 12pt;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            background-color: var(--sand);
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .info-box {
+            background-color: #fdfdfd;
+            border: 1px solid var(--line);
+            border-left: 5px solid var(--green-mid);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-family: 'Baskervville', serif;
+        }
+
+        ul {
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-family: 'Baskervville', serif;
+            font-size: 12pt;
+        }
+
+        .role-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .role-card {
+            border: 1px solid var(--line);
+            padding: 15px;
+            border-radius: 10px;
+            background: white;
+        }
+
+        .role-card b {
+            color: var(--green-deep);
+            display: block;
+            margin-bottom: 5px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20mm;
+            left: 25mm;
+            right: 25mm;
+            font-size: 9pt;
+            color: var(--muted);
+            text-align: center;
+            border-top: 1px solid var(--line);
+            padding-top: 10px;
+        }
+
+        .btn-print {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background: var(--green-deep);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <button class="btn-print no-print" onclick="window.print()">⬇️ Télécharger en PDF</button>
+
+    <!-- PAGE 1 : COUVERTURE -->
+    <div class="page">
+        <div style="margin-top: 100px; text-align: center;">
+            <div style="font-family: 'Inter', sans-serif; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 20px;">Rapport de Conception</div>
+            <h1 style="font-size: 42pt; margin-bottom: 30px;">Projet iQranee</h1>
+            <div style="width: 60px; height: 4px; background: var(--green-deep); margin: 0 auto 30px;"></div>
+            <p style="font-size: 18pt; text-align: center; font-style: italic;">De la Vision à la Réalisation Numérique</p>
+            <div style="margin-top: 150px; text-align: left; font-family: 'Inter', sans-serif; font-size: 12pt;">
+                <p><b>Destinataire :</b> Direction de l'Institut iQranee</p>
+                <p><b>Objet :</b> Architecture, diagnostic et déploiement du système de gestion interne</p>
+                <p><b>Date :</b> Juillet 2026</p>
+            </div>
+        </div>
+        <div class="footer">iQranee &copy; 2026 - Document Confidentiel</div>
+    </div>
+
+    <!-- PAGE 2 : INTRODUCTION & NATURE -->
+    <div class="page page-break">
+        <header>
+            <h1>iQranee</h1>
+            <div class="doc-meta">Page 2 / 6</div>
+        </header>
+
+        <h2>1. Introduction : origine et vision</h2>
+        <p>La création de l'outil <b>iQranee</b> ne naît pas d'une simple envie de créer un site internet, mais d'un constat de terrain au sein de notre institut.</p>
+        <p>L'institut fonctionnait avec des méthodes fragmentées. L'information était éparpillée, les processus étaient manuels et la vision globale de l'activité était difficile à obtenir instantanément. Ce manque de centralisation créait une charge mentale inutile pour l'équipe et des risques d'erreurs dans le suivi pédagogique.</p>
+        <p>L'idée a muté vers la création d'un véritable <span class="highlight">outil métier</span> (un logiciel conçu sur mesure pour répondre à la complexité de notre organisation). Nous ne cherchions plus une "page de plus", mais un moteur capable de porter toute l'activité de l'institut de manière intelligente et sécurisée.</p>
+
+        <h2>2. Nature du projet</h2>
+        <p>Il est essentiel de définir précisément ce qu'est iQranee pour éviter toute confusion :</p>
+        <ul>
+            <li><b>Une application web :</b> Un logiciel complet accessible via un navigateur. Elle permet de réaliser des actions complexes : enregistrer, modifier, supprimer et calculer des données en temps réel.</li>
+            <li><b>Un logiciel métier :</b> Un outil conçu spécifiquement pour intégrer les règles de notre institut (cycles de cours, niveaux d'arabe, communication familles).</li>
+        </ul>
+        <div class="info-box">
+            <b>Hiérarchie de complexité :</b><br>
+            Site vitrine (lecture seule) &rarr; Page HTML (affiche une info) &rarr; <b>Application iQranee (système dynamique qui traite et mémorise l'information).</b>
+        </div>
+    </div>
+
+    <!-- PAGE 3 : IA vs LOGICIEL -->
+    <div class="page page-break">
+        <header>
+            <h1>iQranee</h1>
+            <div class="doc-meta">Page 3 / 6</div>
+        </header>
+
+        <h2>3. IA vs Véritable Logiciel</h2>
+        <p>Une Intelligence Artificielle (IA) peut générer en quelques secondes une interface visuelle. Cependant, il existe un fossé technologique entre une "coquille vide" et un logiciel professionnel.</p>
+        
+        <div class="info-box" style="background-color: var(--sand);">
+            <b>La métaphore de la construction :</b><br>
+            L'IA construit la <b>façade</b> d'une maison (couleurs, fenêtres). C'est esthétique, mais la maison est vide. Le développement logiciel consiste à construire les <b>fondations</b>, la plomberie, l'électricité et la structure porteuse pour rendre la maison habitable et sécurisée.
+        </div>
+
+        <p>Un vrai logiciel nécessite quatre piliers que l'IA seule ne peut pas gérer :</p>
+        <ul>
+            <li><b>L'Architecture :</b> Le plan structurel du système.</li>
+            <li><b>La Base de données :</b> La mémoire permanente et organisée.</li>
+            <li><b>La Logique métier :</b> Les règles de calcul et de validation.</li>
+            <li><b>La Sécurité :</b> La protection et le contrôle des accès.</li>
+        </ul>
+    </div>
+
+    <!-- PAGE 4 : AUDITS -->
+    <div class="page page-break">
+        <header>
+            <h1>iQranee</h1>
+            <div class="doc-meta">Page 4 / 6</div>
+        </header>
+
+        <h2>4. Le Diagnostic : La phase d'Audit</h2>
+        <p>L'audit est l'étape de l'ingénieur qui permet de passer du "ressenti" à la "donnée réelle". J'ai appliqué une méthode de <b>"Teardown"</b> (déconstruction systématique) sur l'ensemble du système pour identifier les points de rupture.</p>
+
+        <h3>A. L'Audit UX (Expérience Utilisateur)</h3>
+        <p>Analyse de la <b>Charge Cognitive</b> (effort mental requis pour utiliser l'outil). Le constat a montré une surcharge d'onglets et de menus, créant une fatigue visuelle. La solution a été de réduire la friction pour que les gestes quotidiens deviennent des réflexes.</p>
+
+        <h3>B. L'Audit d'Architecture de l'Information</h3>
+        <p>Analyse de la logique de regroupement. L'audit a révélé une navigation "plate" et confuse. La solution a été la création de <b>Domaines Métiers</b> (Pédagogie, Assiduité, Communication) pour regrouper les fonctions par thématiques.</p>
+
+        <h3>C. L'Audit Technique et de Scalabilité</h3>
+        <p>Analyse de la robustesse. J'ai préparé le passage au mode <b>Multi-tenant</b> (capacité du logiciel à gérer plusieurs entités isolées) et implémenté la <b>Sécurité RLS</b> (Row Level Security) pour garantir que chaque utilisateur n'accède qu'aux données qui le concernent strictement.</p>
+    </div>
+
+    <!-- PAGE 5 : ARCHITECTURE & TECH -->
+    <div class="page page-break">
+        <header>
+            <h1>iQranee</h1>
+            <div class="doc-meta">Page 5 / 6</div>
+        </header>
+
+        <h2>5. Architecture et Technologies</h2>
+        <p>Le logiciel repose sur un système en trois couches communicantes :</p>
+        <ul>
+            <li><b>Le Frontend (Visible) :</b> Interface intuitive gérant l'affichage et la capture des commandes.</li>
+            <li><b>Le Backend (Invisible) :</b> Le "cerveau" qui valide les actions selon les règles de l'institut.</li>
+            <li><b>La Base de données (Mémoire) :</b> Le coffre-fort organisé où les informations sont stockées en toute sécurité.</li>
+        </ul>
+
+        <h3>Outils techniques utilisés :</h3>
+        <ul>
+            <li><b>HTML/CSS/JS :</b> Fondations visuelles et interactives.</li>
+            <li><b>Supabase & PostgreSQL :</b> Gestionnaire de données de niveau entreprise, garantissant l'intégrité absolue des informations.</li>
+            <li><b>Authentification & RLS :</b> Système de verrouillage et de contrôle d'accès ultra-précis.</li>
+            <li><b>Migrations :</b> Capacité de faire évoluer le logiciel sans jamais perdre les données existantes.</li>
+        </ul>
+
+        <h2>6. Conception et Rôles</h2>
+        <p>Développer ce logiciel a nécessité la mobilisation de plusieurs expertises :</p>
+        <div class="role-grid">
+            <div class="role-card"><b>Product Manager</b> Vision globale et définition de la valeur ajoutée.</div>
+            <div class="role-card"><b>Cheffe de Projet</b> Organisation, priorisation et décisions techniques.</div>
+            <div class="role-card"><b>UX Designer</b> Conception d'une interface fluide et sans friction.</div>
+            <div class="role-card"><b>Learning Designer</b> Intégration de la logique pédagogique dans le code.</div>
+            <div class="role-card"><b>Business Analyst</b> Traduction des besoins terrain en solutions techniques.</div>
+        </div>
+    </div>
+
+    <!-- PAGE 6 : IMPACT & VISION -->
+    <div class="page page-break">
+        <header>
+            <h1>iQranee</h1>
+            <div class="doc-meta">Page 6 / 6</div>
+        </header>
+
+        <h2>7. Implications pour l'Institut</h2>
+        <p>Ce projet apporte des bénéfices immédiats et structure l'avenir :</p>
+        <ul>
+            <li><b>Gain de productivité :</b> Automatisation des tâches et accès instantané à l'info.</li>
+            <li><b>Centralisation :</b> Une seule source de vérité pour toute l'équipe.</li>
+            <li><b>Suivi de précision :</b> Vision proactive de la progression des élèves.</li>
+            <li><b>Professionnalisation :</b> Image de marque moderne et technologique.</li>
+        </ul>
+
+        <h2>8. Vision Future</h2>
+        <p>iQranee est une infrastructure évolutive capable d'absorber de nouveaux modules :</p>
+        <ul>
+            <li><b>Intelligence de Données :</b> Analyse prédictive du risque de décrochage des élèves.</li>
+            <li><b>Modules de Gestion :</b> Intégration de la gestion des ressources et du matériel.</li>
+            <li><b>Portail Familles :</b> Création d'un espace dédié pour les parents (consultation sécurisée).</li>
+            <li><b>Scalabilité :</b> Capacité à gérer l'ouverture de nouveaux centres de manière centralisée.</li>
+        </ul>
+
+        <div class="info-box" style="border-left-color: var(--green-deep); font-weight: bold; text-align: center;">
+            iQranee n'est pas une simple mise à jour informatique, c'est une transformation numérique stratégique qui allie la rigueur technologique à l'excellence pédagogique.
+        </div>
+
+        <div class="footer">iQranee &copy; 2026 - Document Confidentiel</div>
+    </div>
+
+</body>
+</html>
